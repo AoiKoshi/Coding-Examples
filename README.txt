@@ -4,7 +4,7 @@ These are systems and/or mechanics I've created, most of the time for other proj
 that have been stripped down to their core elements to serve as a proof of concept
 and implementation.
 
-## [Unity demos](https://github.com/AoiKoshi/Coding-Examples/wiki)
+## [Unity demos](www.github.com/AoiKoshi/Coding-Examples/wiki)
 -Advanced Third Person Controller
 -RPG systems
 -Multiplayer (Unity Netcode)
