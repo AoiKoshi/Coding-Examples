@@ -9,7 +9,7 @@ and implementation.
 * RPG systems
 * Multiplayer (Unity Netcode)
 
-### [Pure C++ programs](https://github.com/AoiKoshi/Coding-Examples/wiki/Pure-C---Programs)
+### [Pure C++ programs](https://github.com/AoiKoshi/Coding-Examples/wiki/Pure-.cpp-Programs)
 * Simple calculator
 * String manipulator
 * TripleX text-based game
