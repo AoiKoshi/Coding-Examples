@@ -1,24 +1,26 @@
 #include <iostream>
 #include <ctime>
 
-bool CheckGuess(int GuessSum, int GuessProduct, int CodeSum, int CodeProduct)
+using namespace std;
+
+bool checkGuess(int GuessSum, int GuessProduct, int CodeSum, int CodeProduct)
 {
     if(GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "Correct! You may now proceed to the next security level.\n";
-        std::cin.get();
+        cout << "Correct! You may now proceed to the next security level.\n";
+        cin.get();
         return true;
     }
     else{
-        std::cout << "Error! Wrong codes entered. Shutting down...\n";
-        std::cin.get();
+        cout << "Error! Wrong codes entered. Shutting down...\n";
+        cin.get();
         return false;
     }
 }
 
-bool PlayGameAtDifficulty(int difficulty)
+bool playGameAtDifficulty(int difficulty)
 {
-    std::cout << "Security level: " << difficulty << std::endl;
+    cout << "Security level: " << difficulty << endl;
 
     int CodeA = rand()%(10*difficulty) + 1;
     int CodeB = rand()%(10*difficulty) + 1;
@@ -27,52 +29,54 @@ bool PlayGameAtDifficulty(int difficulty)
     int CodeProduct = CodeA * CodeB * CodeC;
 
     //Uncomment for testing/cheating purposes
-    //std::cout << CodeA << CodeB << CodeC << std::endl;
-    std::cout << "There are 3 numbers in the code.\n";
-    std::cout << "The codes add up to: " << CodeSum << std::endl;
-    std::cout << "The codes multiply to: " << CodeProduct << std::endl;
+    //cout << CodeA << CodeB << CodeC << endl;
+    cout << "There are 3 numbers in the code.\n";
+    cout << "The codes add up to: " << CodeSum << endl;
+    cout << "The codes multiply to: " << CodeProduct << endl;
 
     int GuessA, GuessB, GuessC;
-    std::cin >> GuessA >> GuessB >> GuessC;
+    cin >> GuessA >> GuessB >> GuessC;
+
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
 
-    return CheckGuess(GuessSum, GuessProduct, CodeSum, CodeProduct);
+    return checkGuess(GuessSum, GuessProduct, CodeSum, CodeProduct);
 }
 
-void IntroSequence()
+void introSequence()
 {
-    std::cout << "Hey there super hacker! You are *the* SilverFox, right?\n";
-    std::cout << "Well, we're in dire need of your help.\n";
-    std::cout << "You'll need to enter the correct codes to continue...\n";
+    cout << "Hey there super hacker! You are *the* SilverFox, right?\n";
+    cout << "Well, we're in dire need of your help.\n";
+    cout << "You'll need to enter the correct codes to continue...\n";
 }
 
-void EndSequence(bool ShutDown)
+void endSequence(bool ShutDown)
 {
     if(ShutDown)
     {
-       std::cout << "Oh dear, it seems you've failed. They've been alerted, get out of there!\n";
-       std::cin.get();
+       cout << "Oh dear, it seems you've failed. They've been alerted, get out of there!\n";
+       cin.get();
     }
     else{
-       std::cout << "Wowza, mission accomplished!\n";
-       std::cout << "Now retrieve the data and get out of there!\n";
-       std::cin.get();
+       cout << "Wowza, mission accomplished!\n";
+       cout << "Now retrieve the data and get out of there!\n";
+       cin.get();
     }
 }
 
 int main()
 {
     srand(time(NULL));
-    IntroSequence();
+    introSequence();
 
+    //Setting the number of levels that can be played
     int Difficulty = 1;
     const int MaxDifficulty = 3;
     bool ShutDown = false;
     
     while(Difficulty <= MaxDifficulty)
     {
-        if(PlayGameAtDifficulty(Difficulty))
+        if(playGameAtDifficulty(Difficulty))
         {
             ++Difficulty;
         }
@@ -80,10 +84,10 @@ int main()
             ShutDown = true;
             break;
         }
-        std::cin.clear(); //Clears the failbit
-        std::cin.ignore(); //Discards the buffer
+        cin.clear(); //Clears the failbit
+        cin.ignore(); //Discards the buffer
     }
 
-    EndSequence(ShutDown);
+    endSequence(ShutDown);
     return 0;
 }
