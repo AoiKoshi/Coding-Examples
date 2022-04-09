@@ -10,6 +10,7 @@ void askEnd();
 void directOperation(const int operation);
 void reverse(const string& str);
 void checkCharFrequency(const string& str);
+void removeCharacter(string str);
 
 int main()
 {
@@ -21,7 +22,8 @@ int main()
         int operation;
         const char *options =   "String operations\n"
                                 "1 = Reversal\n"
-                                "2 = Check frequency of a character\n";
+                                "2 = Check frequency of a character\n"
+                                "3 = Remove character\n";
         cout << options << endl;
         cout << "Select an operation by its number: " << endl;
         cin >> operation;
@@ -68,6 +70,10 @@ void directOperation(const int operation)
             checkCharFrequency(str);
             cin.get();
             break;
+        case 3:
+            removeCharacter(str);
+            cin.get();
+            break;
     }
 }
 
@@ -92,8 +98,8 @@ void checkCharFrequency(const string& str)
     cout << "Enter character: \n";
     cin >> checkCharacter;
 
+    //Count every time there's a character match
     int count = 0;
-
     for (int i = 0; i < str.size(); i++)
     {
         if (str[i] == checkCharacter)
@@ -103,4 +109,24 @@ void checkCharFrequency(const string& str)
     }
 
     cout << "Number of " << checkCharacter << " = " << count << endl;
+}
+
+void removeCharacter(string str)
+{
+    char checkCharacter;
+    cout << "Enter character to remove: \n";
+    cin >> checkCharacter;
+
+    string temp;
+
+    for (int i = 0; i < str.length(); ++i)
+    {
+        //Add all but the blacklisted character to temp
+        if (str[i] != checkCharacter)
+        {
+            temp += (str[i]);
+        }
+    }
+    
+    cout << temp << endl;
 }
