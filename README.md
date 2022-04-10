@@ -10,9 +10,10 @@ and implementation.
 * Multiplayer (Unity Netcode)
 
 ### [Pure C++ programs](https://github.com/AoiKoshi/Coding-Examples/wiki/Pure-.cpp-Programs)
+* Shortest route in a maze
+* TripleX text-based game
 * Simple calculator
 * String manipulator
-* TripleX text-based game
 
 More will be added over time. You can check out these systems being implemented in my work
 on my website: www.kruzeraptor.co.uk
