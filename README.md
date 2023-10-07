@@ -15,5 +15,4 @@ and implementation.
 * Simple calculator
 * String manipulator
 
-More will be added over time. You can check out these systems being implemented in my work
-on my website: www.kruzeraptor.co.uk
+More will be added over time.
